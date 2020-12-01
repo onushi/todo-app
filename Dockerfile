@@ -17,6 +17,9 @@ COPY Gemfile.lock .
 COPY package.json .
 COPY yarn.lock .
 
+# because apk fail to fetch APKINDEX
+RUN sed -i -e 's/http:/https:/' /etc/apk/repositories
+
 RUN apk update && \
     apk add --no-cache tzdata libxml2-dev curl-dev make gcc libc-dev g++ mariadb-dev && \
     gem install bundler:2.0.2 && \
