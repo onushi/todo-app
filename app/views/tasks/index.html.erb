@@ -1,4 +1,9 @@
 <h1>タスク一覧</h1>
+<% flash.each do |key, value| %>
+<p class="alert alert-<%= key %>">
+    <%= value %>
+</p>
+<% end %>
 <table>
     <thead>
         <tr>

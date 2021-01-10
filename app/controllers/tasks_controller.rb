@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-    redirect_to tasks_path
+    redirect_to tasks_path, notice: 'タスクを作成しました。'
   end
 
   def edit
@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to tasks_url
+    redirect_to tasks_url, notice: 'タスクを編集しました。'
   end
 
   private
